@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Novelpia Auto Recommend",
+    "version": "1.0",
+    "description": "노벨피아에서 자동으로 추천 버튼을 클릭합니다.",
+    "permissions": ["storage", "activeTab"],
+    "host_permissions": ["https://novelpia.com/viewer/*"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icons/icon_on.png",
+        "48": "icons/icon_on.png",
+        "128": "icons/icon_on.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon_off.png",
+            "48": "icons/icon_off.png",
+            "128": "icons/icon_off.png"
+        },
+        "default_title": "추천 자동 클릭"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://novelpia.com/viewer/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
